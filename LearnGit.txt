@@ -1,53 +1,67 @@
-SSH����Э���Http����Э�飺
+SSH传输协议和Http传输协议：
 
-  git��Ȼ֧�ֶ��ִ���Э�飬Ĭ�ϵ�git:// ʹ��SSH������httpЭ������ٶ�������ÿ�����Ͷ������������
+  git虽然支持多种传输协议，默认的git:// 使用SSH，但是http协议除了速度慢，且每次推送都必须输入口令
 
-Զ�ֿ̲�
+远程仓库
 
-I.���زֿ��gitHub�ֿ�֮��Ĵ�����SSH���ܵģ���Ҫ����SSH Key
+I.本地仓库和gitHub仓库之间的传输是SSH加密的，需要设置SSH Key
 
-1.����SSH Key
+1.创建SSH Key
 
   ssh-keygen -t rsa -C "yuanjia.fan@outlook.com"
 
-2.��User/Administrator/.ssh�ļ����л���������ļ���
+2.在User/Administrator/.ssh文件夹中会产生两个文件：
 
-	id_rsa:˽Կ
-	id_rsa.pub����Կ
+	id_rsa:私钥
+	id_rsa.pub：公钥
 
-   ע����Կ���Ը��߱��� ����Ĺ�Կ�����ӵ����˵Ĳֿ��£������Ի�ȡ���˲ֿ������
+   注：公钥可以告诉别人 当你的公钥被添加到别人的仓库下，你便可以获取别人仓库的内容
 
-3.��¼GitHub->setting/SSH Setting/add SSH Key
+3.登录GitHub->setting/SSH Setting/add SSH Key
 
-  ��дtitle��id_rsa.pub�е�����
+  填写title和id_rsa.pub中的内容
 
-  ����������ֿ���������ʱ������ʶ����������͵Ķ����Ǳ���
+  这样当你向仓库推送内容时，可以识别出是你推送的而不是别人
 
-4.����Զ�ֿ̲�
+4.创建远程仓库
 
-  ������ʾ�������زֿ�
+  根据提示关联本地仓库
 
-5.�����Ժ����;Ϳ���ʹ������
+5.这样以后推送就可以使用命令
 
   git pust origin master 
 
-  ���ѱ��ص������޸����͵�gitGub��
+  来把本地的最新修改推送到gitGub上
 
-II.��Զ�ֿ̲��¡
+II.从远程仓库克隆
 
-1.���㿪ʼ����÷�ʽ���ȴ���Զ�̿⣬�ڱ��ؿ�¡
+1.从零开始的最好方式是先创建远程库，在本地克隆
 
-  git clone �ֿ��ַ
+  git clone 仓库地址
 
-III.ʹ��
+III.使用
 
-1.������˵Ŀ�Դ��Ŀ
+1.参与别人的开源项目
 
-  ����Ŀ��ҳ���Fork�ͽ�����Ŀ��¡���Լ��Ĳֿ��£�Ȼ�󱾵ؿ�¡�Լ��Ĳֿ�
+  在项目主页点击Fork就将该项目克隆到自己的仓库下，然后本地克隆自己的仓库
 
-  ע�⣺�����ֱ�ӿ�¡������Ŀ�Ĳֿ� git clone ������Ŀ��url���㽫���������޸ģ���Ϊû��Ȩ��
+  注意：如果你直接克隆别人项目的仓库 git clone 别人项目的url，你将不能推送修改，因为没有权限
 
-  ��ֻ��Fork֮���¡�Լ��Ĳֿ⵽���أ�����֮���ύ���Լ��Ĳֿ�
+  你只能Fork之后克隆自己的仓库到本地，更改之后提交到自己的仓库
 
-  Ȼ�� Pull Request,���Ǳ����Ƿ���ܾͲ�һ����
+  然后 Pull Request,但是别人是否接受就不一定了
+  
+2.UI界面
+
+  在仓库的命令行模式下执行：
+  
+	gitk 打开历史修改的UI
+  
+	git gui 制作提交的UI工具
+	
+  GitHub客户端：
+  
+    Windows: https://windows.github.com
+	
+	Mac: https://mac.github.com
 
