@@ -68,4 +68,45 @@ III.使用
     Windows: https://windows.github.com
 	
 	Mac: https://mac.github.com
+	
+3.git常用命令(持续更新)
 
+	工作区和暂存区：
+	
+		工作区：电脑中的仓库目录
+		
+		暂存区：工作区的.git文件夹是git的版本库。 版本库中有一个stage的暂存区和一个指向当前版本的HEAD的指针
+		
+				git add就是把所有修改放到暂存区，git commit是提交暂存区的修改。
+
+	克隆：git clone git@github.com:YouthInXn/HelloWorld
+	
+	版本回退：git 有一个HEAD指针指向当前版本，通过改变指针位置可以轻松地在各个版本之间来回穿梭
+	
+		查看版本日志：git log
+		
+		查看命令日志：git reflog
+		
+		版本回退：git reset --hard HEAD^   / git reset --hard commit_id
+			
+			--> HEAD^ 表示上一个版本，HEAD^^表示上上一个版本 通过commit_id可以回退到指定版本
+			
+		现在总结一下：（拷贝自廖雪峰的官方网站）
+
+		HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+
+		穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+
+		要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
+	撤销工作区的修改(未提交之前)：git checkout -- file ( -- 很重要，git checkout 是执行切换分支)
+	
+		分两种情况：1.修改文件之后还未添加到暂存区(git add) 则该命令会执行撤销
+		
+					2.修改文件之后添加到暂存区，又做了修改，则添加到暂存区之后的状态
+	
+	撤销暂存区的修改(未提交之前)：git reset HEAD <file>
+	
+	提交之后就可以使用版本回退的命令
+	
+	
