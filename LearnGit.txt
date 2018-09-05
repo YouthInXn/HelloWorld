@@ -109,4 +109,8 @@ III.使用
 	
 	提交之后就可以使用版本回退的命令
 	
+	提交到远程：git push origin master  (origin是远程仓库名称，master是要提交的远程仓库分支)
+	
+	从远程更新：git pull origin master
+	
 	
